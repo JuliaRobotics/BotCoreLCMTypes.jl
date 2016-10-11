@@ -1,5 +1,15 @@
+__precompile__()
+
 module BotCoreLCMTypes
 
-# package code goes here
+using PyCall
+export bot_core
 
-end # module
+const bot_core = PyNULL()
+
+function __init__()
+    include(joinpath(dirname(@__FILE__), "..", "deps", "deps.jl"))
+    copy!(bot_core, pyimport("bot_core"))
+end
+
+end
