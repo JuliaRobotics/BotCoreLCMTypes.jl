@@ -26,7 +26,7 @@ process = (@build_steps begin
                    builddir=lcmtypes_builddir,
                    prefix=prefix,
                    installed_libpath=[installed_target],
-                   cmake_args=["-DCMAKE_PREFIX_PATH=$(joinpath(Pkg.dir("PyLCM"), "deps", "usr"))"])
+                   cmake_args=["-DCMAKE_PREFIX_PATH=$(joinpath(Pkg.dir("LCMCore"), "deps", "usr"))"])
     end))
 end)
 
