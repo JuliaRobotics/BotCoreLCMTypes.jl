@@ -6,12 +6,12 @@ os:
   - linux
   - osx
 julia:
-  - 0.4
   - 0.5
   - nightly
-before_install:
-  - julia -e 'Pkg.clone("PyLCM")'
-  - julia -e 'Pkg.checkout("PyLCM")'
-  - julia -e 'Pkg.build("PyLCM")'
+script:
+  - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
+  - julia -e 'Pkg.clone("https://github.com/rdeits/CMakeWrapper.jl.git")'
+  - julia -e 'Pkg.build("CMakeWrapper")'
+  - julia -e 'Pkg.clone(pwd()); Pkg.build("BotCoreLCMTypes"); Pkg.test("BotCoreLCMTypes"; coverage=true)'
 notifications:
   email: false

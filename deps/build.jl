@@ -1,5 +1,7 @@
 using BinDeps
 using PyCall
+using CMakeWrapper
+
 sys = pyimport("sys")
 
 basedir = joinpath(Pkg.dir("BotCoreLCMTypes"), "deps")
@@ -11,20 +13,20 @@ lcmtypes_builddir = joinpath(basedir, "builds", "bot_core_lcmtypes")
 
 python_name = "python$(sys[:version_info][1]).$(sys[:version_info][2])"
 
+installed_target = joinpath(prefix, "lib", python_name, "site-packages", "bot_core", "__init__.py")
 
 process = (@build_steps begin
-    FileRule(joinpath(prefix, "lib", "python2.7", "site-packages", "bot_core", "__init__.py"),
+    FileRule(installed_target,
         (@build_steps begin
         FileDownloader("https://github.com/wxmerkt/bot_core_lcmtypes/archive/$(lcmtypes_sha).zip",
                        joinpath(basedir, "downloads", "$(lcmtypes_sha).zip"))
         FileUnpacker(joinpath(basedir, "downloads", "$(lcmtypes_sha).zip"),
                      joinpath(basedir, "src"), lcmtypes_folder)
-        CreateDirectory(lcmtypes_builddir)
-        @build_steps begin
-            ChangeDirectory(lcmtypes_builddir)
-            `cmake -DCMAKE_INSTALL_PREFIX=$(prefix) -DCMAKE_PREFIX_PATH=$(joinpath(Pkg.dir("PyLCM"), "deps", "usr")) $(lcmtypes_srcdir)`
-            `cmake --build . --target install`
-        end
+        CMakeBuild(;srcdir=lcmtypes_srcdir,
+                   builddir=lcmtypes_builddir,
+                   prefix=prefix,
+                   installed_libpath=[installed_target],
+                   cmake_args=["-DCMAKE_PREFIX_PATH=$(joinpath(Pkg.dir("PyLCM"), "deps", "usr"))"])
     end))
 end)
 
