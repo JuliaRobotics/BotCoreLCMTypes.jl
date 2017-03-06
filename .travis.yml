@@ -2,16 +2,21 @@
 language: julia
 sudo: required
 dist: trusty
-os:
-  - linux
-  - osx
-julia:
-  - 0.4
-  - 0.5
-  - nightly
-before_install:
-  - julia -e 'Pkg.clone("PyLCM")'
-  - julia -e 'Pkg.checkout("PyLCM")'
-  - julia -e 'Pkg.build("PyLCM")'
+branches:
+  only: master
+matrix:
+  include:
+    - os: linux
+      julia: 0.5
+    - os: linux
+      julia: 0.6
+    - os: osx
+      julia: 0.5
+      env: PYTHON="/usr/local/bin/python"
+    - os: osx
+      julia: 0.6
+      env: PYTHON="/usr/local/bin/python"
+  allow_failures:
+    - julia: 0.6
 notifications:
   email: false
