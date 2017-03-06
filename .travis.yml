@@ -18,11 +18,5 @@ matrix:
       env: PYTHON="/usr/local/bin/python"
   allow_failures:
     - julia: 0.6
-
-script:
-  - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
-  - julia -e 'Pkg.clone("https://github.com/rdeits/CMakeWrapper.jl.git")'
-  - julia -e 'Pkg.build("CMakeWrapper")'
-  - julia -e 'Pkg.clone(pwd()); Pkg.build("BotCoreLCMTypes"); Pkg.test("BotCoreLCMTypes"; coverage=true)'
 notifications:
   email: false

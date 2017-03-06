@@ -1,4 +1,4 @@
 julia 0.5
 PyCall 1.4.0
 PyLCM 0.1.0
-CMakeWrapper
+CMakeWrapper 0.0.1
