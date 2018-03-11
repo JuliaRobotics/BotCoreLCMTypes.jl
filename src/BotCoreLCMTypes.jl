@@ -3,7 +3,7 @@ __precompile__()
 module BotCoreLCMTypes
 
 using LCMCore
-using StaticArrays: SVector, SMatrix
+using StaticArrays: SVector
 
 export atlas_command_t,
        force_torque_t,
