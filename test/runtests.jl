@@ -20,10 +20,10 @@ for name, obj in inspect.getmembers(bot_core):
 
 expected_fingerprints_network_order = Dict(
 atlas_command_t => 1312111223708868662,
-# force_torque_t => -575550166132800226,
-# gps_data_t => 1591358810433180375,
-# gps_satellite_info_list_t => 6630954057076318457,
-# gps_satellite_info_t => -3841388522418257571,
+force_torque_t => -575550166132800226,
+gps_data_t => 1591358810433180375,
+gps_satellite_info_list_t => 6630954057076318457,
+gps_satellite_info_t => -3841388522418257571,
 # image_metadata_t => -8143784636512515174,
 # image_sync_t => 3436534526547922253,
 # image_t => -1083725853459778796,
