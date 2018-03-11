@@ -10,4 +10,3 @@ end
     joint_name => (num_joints,),
     joint_position => (num_joints,)
 )
-

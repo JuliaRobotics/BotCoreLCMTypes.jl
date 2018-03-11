@@ -13,4 +13,3 @@ end
     position => (num_links, 3),
     quaternion => (num_links, 4),
 )
-

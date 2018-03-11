@@ -7,4 +7,3 @@ end
 @lcmtypesetup(kvh_raw_imu_batch_t,
     raw_imu => (num_packets,)
 )
-

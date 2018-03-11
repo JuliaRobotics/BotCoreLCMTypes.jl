@@ -11,6 +11,4 @@ mutable struct ins_t <: LCMType
     rel_alt::Float64
 end
 
-@lcmtypesetup(ins_t,
-)
-
+@lcmtypesetup(ins_t)

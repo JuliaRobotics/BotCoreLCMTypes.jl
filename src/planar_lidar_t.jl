@@ -14,4 +14,3 @@ end
     ranges => (nranges,),
     intensities => (nintensities,),
 )
-

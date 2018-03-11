@@ -8,4 +8,3 @@ mutable struct pose_t <: LCMType
 end
 
 @lcmtypesetup(pose_t)
-

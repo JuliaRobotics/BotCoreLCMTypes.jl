@@ -6,4 +6,3 @@ end
 @lcmtypesetup(viewer_load_robot_t,
     link => (num_links,)
 )
-

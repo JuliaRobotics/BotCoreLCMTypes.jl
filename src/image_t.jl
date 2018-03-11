@@ -14,4 +14,3 @@ end
     data => (size,),
     metadata => (nmetadata,)
 )
-

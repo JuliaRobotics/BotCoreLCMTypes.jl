@@ -9,4 +9,3 @@ end
     names => (num_sensors,),
     sensors => (num_sensors,)
 )
-

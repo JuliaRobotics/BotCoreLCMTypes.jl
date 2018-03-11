@@ -4,6 +4,4 @@ mutable struct vector_3d_t <: LCMType
     z::Float64
 end
 
-@lcmtypesetup(vector_3d_t,
-)
-
+@lcmtypesetup(vector_3d_t)

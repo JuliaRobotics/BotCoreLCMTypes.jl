@@ -5,6 +5,4 @@ mutable struct pointfield_t <: LCMType
     count::Int32
 end
 
-@lcmtypesetup(pointfield_t,
-)
-
+@lcmtypesetup(pointfield_t)

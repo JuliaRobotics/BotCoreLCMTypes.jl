@@ -9,4 +9,3 @@ end
     image_types => (n_images,),
     images => (n_images,),
 )
-

@@ -6,4 +6,3 @@ mutable struct kvh_raw_imu_t <: LCMType
 end
 
 @lcmtypesetup(kvh_raw_imu_t)
-

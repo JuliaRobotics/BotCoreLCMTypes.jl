@@ -15,4 +15,3 @@ end
     channel_names => (n_channels,),
     channels => (n_channels, n_points),
 )
-

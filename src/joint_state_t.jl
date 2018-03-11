@@ -13,4 +13,3 @@ end
     joint_velocity => (num_joints,),
     joint_effort => (num_joints,),
 )
-

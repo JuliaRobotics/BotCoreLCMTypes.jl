@@ -12,7 +12,7 @@ eval(Expr(:type, true,
         Expr(:(::), :num_float_data, :Int32),
         Expr(:(::), :float_data, :(Vector{Float32})),
 )))
+
 @lcmtypesetup(viewer_geometry_data_t,
     float_data => (num_float_data,)
 )
-
