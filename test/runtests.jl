@@ -24,13 +24,13 @@ force_torque_t => -575550166132800226,
 gps_data_t => 1591358810433180375,
 gps_satellite_info_list_t => 6630954057076318457,
 gps_satellite_info_t => -3841388522418257571,
-# image_metadata_t => -8143784636512515174,
-# image_sync_t => 3436534526547922253,
-# image_t => -1083725853459778796,
-# images_t => 4243505650783468064,
-# ins_t => 4613985382350956424,
-# joint_angles_t => -8005155243827168194,
-# joint_state_t => -6587704215521773762,
+image_metadata_t => -8143784636512515174,
+image_sync_t => 3436534526547922253,
+image_t => -1083725853459778796,
+images_t => 4243505650783468064,
+ins_t => 4613985382350956424,
+joint_angles_t => -8005155243827168194,
+joint_state_t => -6587704215521773762,
 # kvh_raw_imu_batch_t => 8667107086997737736,
 # kvh_raw_imu_t => 2860203241911737633,
 # planar_lidar_t => -8260152468248931869,
@@ -54,6 +54,7 @@ utime_t => 3436534526547922253,
 )
 
 for (lcmtype, fingerprint_network_order) in expected_fingerprints_network_order
+    @show lcmtype
     @test hton(fingerprint(lcmtype)) == fingerprint_network_order
 end
 
