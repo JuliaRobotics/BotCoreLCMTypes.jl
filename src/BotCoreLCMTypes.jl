@@ -17,6 +17,12 @@ export atlas_command_t,
        ins_t,
        joint_angles_t,
        joint_state_t,
+       kvh_raw_imu_batch_t,
+       kvh_raw_imu_t,
+       planar_lidar_t,
+       pointcloud2_t,
+       pointcloud_t,
+       pointfield_t,
        utime_t
 
 include("atlas_command_t.jl")
@@ -31,6 +37,12 @@ include("images_t.jl")
 include("ins_t.jl")
 include("joint_angles_t.jl")
 include("joint_state_t.jl")
+include("kvh_raw_imu_t.jl")
+include("kvh_raw_imu_batch_t.jl")
+include("planar_lidar_t.jl")
+include("pointfield_t.jl")
+include("pointcloud2_t.jl")
+include("pointcloud_t.jl")
 include("utime_t.jl")
 
 end
