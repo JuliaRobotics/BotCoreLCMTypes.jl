@@ -1,22 +1,21 @@
 # Documentation: http://docs.travis-ci.com/user/languages/julia/
 language: julia
 sudo: required
+os:
+  - linux
+  - osx
+julia:
+  - 0.6
+  - nightly
 dist: trusty
 branches:
   only: master
 matrix:
-  include:
-    - os: linux
-      julia: 0.5
-    - os: linux
-      julia: 0.6
-    - os: osx
-      julia: 0.5
-      env: PYTHON="/usr/local/bin/python"
-    - os: osx
-      julia: 0.6
-      env: PYTHON="/usr/local/bin/python"
   allow_failures:
-    - julia: 0.6
+    - julia: nightly
 notifications:
   email: false
+
+before_script:
+  - julia -e 'Pkg.init(); Pkg.add("LCMCore"); Pkg.checkout("LCMCore"); Pkg.build("LCMCore")'
+

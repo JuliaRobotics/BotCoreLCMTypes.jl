@@ -2,14 +2,12 @@ __precompile__()
 
 module BotCoreLCMTypes
 
-using PyCall
-export bot_core
+using LCMCore
 
-const bot_core = PyNULL()
+export atlas_command_t,
+       utime_t
 
-function __init__()
-    include(joinpath(dirname(@__FILE__), "..", "deps", "deps.jl"))
-    copy!(bot_core, pyimport("bot_core"))
-end
+include("atlas_command_t.jl")
+include("utime_t.jl")
 
 end
