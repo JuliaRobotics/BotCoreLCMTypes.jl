@@ -1,7 +1,7 @@
 # The viewer_geometry_data_t has a field named `type`, which is a reserved
 # keyword in Julia v0.7 and below. To get around that, we can just
 # construct the expression directly instead of relying on the parser
-eval(Expr(:type, true,
+eval(Expr(VERSION < v"0.7-" ? :type : :struct, true,
     Expr(:(<:), :viewer_geometry_data_t, :LCMType),
     Expr(:block,
         Expr(:(::), :type, :Int8),
