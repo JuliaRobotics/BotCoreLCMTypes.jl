@@ -1,7 +1,7 @@
 # The sensor_status_t has a field named `type`, which is a reserved
 # keyword in Julia v0.7 and below. To get around that, we can just
 # construct the expression directly instead of relying on the parser.
-eval(Expr(VERSION < v"0.7-" ? :type : :struct, true,
+eval(Expr(:struct, true,
     Expr(:(<:), :sensor_status_t, :LCMType),
     Expr(:block,
         Expr(:(::), :utime, :Int64),
