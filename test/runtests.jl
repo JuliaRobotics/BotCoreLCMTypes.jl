@@ -2,11 +2,7 @@ using BotCoreLCMTypes
 using LCMCore
 using LCMCore: fingerprint
 
-if VERSION >= v"0.7-"
-    using Test
-else
-    using Base.Test
-end
+using Test
 
 #=
 The following Python code was used to retrieve all of the
